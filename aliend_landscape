@@ -1,0 +1,25 @@
+// Alien landscape
+
+function setup() {
+	simple();
+	background('black');
+	colorMode(HSB);
+}
+
+function draw() {
+	noStroke();
+	repeat(0, 500, 1, 200, 500, 1, alien_landscape);
+}
+
+function alien_landscape(x, y) {
+	var x2 = x + (y/2);
+	var h = 200 * noise(x/200, y/200);
+	h += 30 * noise(x/30, y/20);
+	var y2 = y - h + 50;
+	
+	var hue = (h - 180 + 360) %360;
+	var brightness = h * 0.75;
+	fill(hue, 80, brightness, 0.3);
+	
+	circle(x2, y2, 2);
+}
