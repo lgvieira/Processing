@@ -1,0 +1,22 @@
+// Sketch 1
+
+function setup() {
+  simple();
+	colourMode(HSB);
+}
+
+function draw() {
+  
+	noStroke();
+	fill('green')
+	repeat(100, 700, 1, 100, 500, 1, noisy_dot);
+ 
+}
+
+function noisy_dot(x, y) {
+  
+	var x2 = x + (100 * noise(x/50, y/50)) - 50;
+	var y2 = y + (100 * noise(y/50, x/50)) -50;
+	circle(x2, y2, 1);
+	
+}
